@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>設計與遊戲接案 | 服務總覽 (暖色極簡版)</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- 基本 SEO / 社群預覽（可自行調整） -->
+  <meta name="description" content="結合專業視覺設計與溫暖有趣的遊戲陪玩，提供輕鬆無負擔的支援。" />
+  <meta property="og:title" content="設計與遊戲接案 | 服務總覽" />
+  <meta property="og:description" content="結合專業視覺設計與溫暖有趣的遊戲陪玩，提供輕鬆無負擔的支援。" />
+  <meta property="og:image" content="assets/images/og-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    /* 溫暖極簡配色 */
+    :root {
+      --color-bg-main: #FDFDFD; /* 淺米白/溫暖白 */
+      --color-bg-alt: #F3F4F6; /* 柔和淺灰 (用於區塊分隔) */
+      --color-text-dark: #333333; /* 深炭灰文字 */
+      --color-accent: #FF9900; /* 主色：橘色 (設計/陪玩空檔) */
+      --color-card: #FFFFFF; /* 卡片背景 */
+      --color-stream: #10B981; /* 新增：綠色 (SOOP直播) */
+      --color-flexible: #3B82F6; /* 新增：淺藍色 (週末彈性時段) */
+      --color-booked: #4A5568; /* 深灰 (已預約/已滿) */
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-bg-main);
+      color: var(--color-text-dark);
+      line-height: 1.6;
+    }
+
+    .slider-container::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 4px; }
+    .slider-container::-webkit-scrollbar-track { background: #E0E0E0; }
+    .slider-container { -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; overflow-x: auto; white-space: nowrap; }
+    .slide-item { scroll-snap-align: center; flex-shrink: 0; display: inline-block; }
+
+    .btn-primary { background-color: var(--color-accent); color: white; transition: all 0.3s; font-weight: 700; }
+    .btn-primary:hover { background-color: #e68a00; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255, 153, 0, 0.4); }
+
+    .service-card { background-color: var(--color-card); transition: all 0.3s; border: 1px solid #DDDDDD; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .service-card:hover { border-color: var(--color-accent); box-shadow: 0 8px 25px rgba(255,153,0,0.15); transform: translateY(-5px); }
+
+    .gaming-price-card { border: 2px solid var(--color-accent); box-shadow: 0 10px 30px rgba(255,153,0,0.2); }
+
+    .calendar-day { height: 48px; border-radius: 8px; display:flex; align-items:center; justify-content:center; font-size:1rem; font-weight:500; cursor:default; border:2px solid; transition:all 0.2s; position:relative; }
+    .calendar-day:hover::after { content: attr(data-tooltip); position:absolute; bottom:100%; left:50%; transform:translateX(-50%); white-space:nowrap; padding:4px 8px; margin-bottom:8px; background-color:rgba(0,0,0,0.8); color:white; border-radius:4px; font-size:0.75rem; z-index:10; pointer-events:none; }
+  </style>
+</head>
+<body>
+<div id="app" class="min-h-screen">
+
+  <!-- 導航列 -->
+  <header class="sticky top-0 z-50 bg-white shadow-md border-b border-[#E0E0E0]">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-black text-gray-800">
+        <span class="text-xs font-normal text-gray-500 block leading-none">YOUR STUDIO</span>
+        <span class="text-2xl text-gray-900">設計 & 陪玩服務</span>
+      </h1>
+      <div class="space-x-6 flex items-center">
+        <a href="#design" class="hidden sm:inline text-base font-medium hover:text-gray-900 transition text-gray-600">設計服務</a>
+        <a href="#gaming" class="hidden sm:inline text-base font-medium hover:text-gray-900 transition text-gray-600">遊戲陪玩</a>
+        <a href="#schedule" class="hidden sm:inline text-base font-medium hover:text-gray-900 transition text-gray-600">排程日曆</a>
+        <a href="#contact" class="text-sm font-medium btn-primary px-4 py-2 rounded-full shadow-lg">立即聯繫</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 頂部英雄區塊 -->
+  <section class="pt-28 pb-20 text-center bg-white border-b border-[#E0E0E0]">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 text-gray-900 leading-tight">
+        點燃您的
+        <span class="inline-block text-[var(--color-accent)] border-b-4 border-[var(--color-accent)] pb-1">品牌潛能</span>
+      </h2>
+      <p class="text-xl text-gray-600 mb-10 mt-6 max-w-2xl mx-auto">結合專業視覺設計與溫暖有趣的遊戲陪玩，我為您的品牌和娛樂時光，提供最輕鬆無負擔的支援。</p>
+      <a href="#design" class="inline-flex items-center justify-center px-10 py-4 text-lg rounded-full btn-primary shadow-2xl">
+        探索我的服務項目
+        <i data-lucide="sparkles" class="w-5 h-5 ml-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- 1. 平面設計接案服務區塊 -->
+  <section id="design" class="py-20 bg-[var(--color-bg-alt)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-5xl font-extrabold text-center mb-4 text-[var(--color-text-dark)]">專業設計解決方案</h3>
+      <p class="text-center text-lg text-gray-500 mb-16">讓您的品牌在市場上溫暖發光。我將以細膩的同理心，打造獨一無二的視覺設計。</p>
+
+      <!-- 服務卡片 -->
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <div class="service-card p-8 rounded-xl">
+          <i data-lucide="pen-tool" class="w-10 h-10 text-[var(--color-accent)] mb-4"></i>
+          <h4 class="text-xl font-semibold text-gray-900 mb-2">品牌與行銷視覺</h4>
+          <p class="text-gray-600 text-sm">海報、名片、廣告橫幅設計，風格專業且現代，強化您的品牌力。</p>
+        </div>
+        <div class="service-card p-8 rounded-xl">
+          <i data-lucide="monitor" class="w-10 h-10 text-[var(--color-accent)] mb-4"></i>
+          <h4 class="text-xl font-semibold text-gray-900 mb-2">直播套件設計</h4>
+          <p class="text-gray-600 text-sm">提供 Twitch/YouTube 貼圖、徽章、介面和等待畫面的完整解決方案。</p>
+        </div>
+        <div class="service-card p-8 rounded-xl">
+          <i data-lucide="handshake" class="w-10 h-10 text-[var(--color-accent)] mb-4"></i>
+          <h4 class="text-xl font-semibold text-gray-900 mb-2">彈性委託與諮詢</h4>
+          <p class="text-gray-600 text-sm">根據您的時程和複雜度提供客製化報價，確保專案順利完成。</p>
+        </div>
+      </div>
+
+      <!-- 作品集區塊（仍保留，圖片支援 lazy） -->
+      <div class="p-8 rounded-xl bg-white shadow-xl">
+        <h4 class="text-3xl font-bold text-gray-900 mb-6 border-b border-[#E0E0E0] pb-3">精選作品案例</h4>
+        <div class="flex flex-wrap gap-6 mb-8">
+          <button onclick="showPortfolio('live')" class="tab-button px-4 py-2 text-base font-semibold transition duration-300 border-b-2 border-[var(--color-accent)] text-[var(--color-accent)]">直播視覺</button>
+          <button onclick="showPortfolio('poster')" class="tab-button px-4 py-2 text-base font-semibold transition duration-300 border-b-2 border-transparent hover:border-gray-400 text-gray-500 hover:text-gray-900">海報設計</button>
+          <button onclick="showPortfolio('card')" class="tab-button px-4 py-2 text-base font-semibold transition duration-300 border-b-2 border-transparent hover:border-gray-400 text-gray-500 hover:text-gray-900">名片設計</button>
+        </div>
+
+        <div id="portfolio-content" class="relative overflow-hidden">
+          <!-- live -->
+          <div id="live-portfolio" class="portfolio-tab active-tab transition-opacity duration-500">
+            <div class="slider-container flex space-x-6 pb-4">
+              <div class="slide-item w-80 md:w-96 rounded-lg overflow-hidden shadow-lg border border-[#E0E0E0]">
+                <img loading="lazy" decoding="async" src="https://placehold.co/500x300/FF9900/4A4A4A?text=直播貼圖+1" alt="直播貼圖作品一" width="500" height="300" class="w-full h-auto object-cover" />
+                <div class="p-3 text-center text-gray-700 bg-[#F8F8F8]">直播貼圖 - 動態樣式</div>
+              </div>
+              <div class="slide-item w-80 md:w-96 rounded-lg overflow-hidden shadow-lg border border-[#E0E0E0]">
+                <img loading="lazy" decoding="async" src="https://placehold.co/500x300/E68A00/4A4A4A?text=直播徽章+2" alt="直播徽章作品二" width="500" height="300" class="w-full h-auto object-cover" />
+                <div class="p-3 text-center text-gray-700 bg-[#F8F8F8]">頻道徽章 - 簡約風</div>
+              </div>
+              <div class="slide-item w-80 md:w-96 rounded-lg overflow-hidden shadow-lg border border-[#E0E0E0]">
+                <img loading="lazy" decoding="async" src="https://placehold.co/500x300/FF9900/4A4A4A?text=等待畫面" alt="等待畫面作品三" width="500" height="300" class="w-full h-auto object-cover" />
+                <div class="p-3 text-center text-gray-700 bg-[#F8F8F8]">直播等待畫面</div>
+              </div>
+            </div>
+          </div>
+          <!-- 海報 -->
+          <div id="poster-portfolio" class="portfolio-tab hidden transition-opacity duration-500">
+            <div class="slider-container flex space-x-6 pb-4 justify-center md:justify-start">
+              <div class="slide-item w-52 md:w-64 rounded-lg overflow-hidden shadow-lg border border-[#E0E0E0]">
+                <img loading="lazy" decoding="async" src="https://placehold.co/300x500/FF9900/4A4A4A?text=直向海報+1" alt="直向海報作品一" width="300" height="500" class="w-full h-auto object-cover" />
+                <div class="p-3 text-center text-gray-700 bg-[#F8F8F8]">活動宣傳海報</div>
+              </div>
+              <div class="slide-item w-52 md:w-64 rounded-lg overflow-hidden shadow-lg border border-[#E0E0E0]">
+                <img loading="lazy" decoding="async" src="https://placehold.co/300x500/E68A00/4A4A4A?text=直向海報+2" alt="直向海報作品二" width="300" height="500" class="w-full h-auto object-cover" />
+                <div class="p-3 text-center text-gray-700 bg-[#F8F8F8]">產品上市海報</div>
+              </div>
+            </div>
+          </div>
+          <!-- 名片 -->
+          <div id="card-portfolio" class="portfolio-tab hidden transition-opacity duration-500">
+            <div class="slider-container flex space-x-6 pb-4">
+              <div class="slide-item w-80 md:w-96 rounded-lg overflow-hidden shadow-lg border border-[#E0E0E0]">
+                <img loading="lazy" decoding="async" src="https://placehold.co/500x300/FF9900/4A4A4A?text=橫向名片+1" alt="橫向名片作品一" width="500" height="300" class="w-full h-auto object-cover" />
+                <div class="p-3 text-center text-gray-700 bg-[#F8F8F8]">經典名片</div>
+              </div>
+              <div class="slide-item w-80 md:w-96 rounded-lg overflow-hidden shadow-lg border border-[#E0E0E0]">
+                <img loading="lazy" decoding="async" src="https://placehold.co/500x300/E68A00/4A4A4A?text=橫向名片+2" alt="橫向名片作品二" width="500" height="300" class="w-full h-auto object-cover" />
+                <div class="p-3 text-center text-gray-700 bg-[#F8F8F8]">設計師名片</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 遊戲陪玩接單區塊 -->
+  <section id="gaming" class="py-20 bg-[var(--color-bg-main)] border-t border-[#E0E0E0]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h3 class="text-5xl font-extrabold mb-10 text-[var(--color-text-dark)]">輕鬆無負擔：暖心陪伴遊戲時光</h3>
+      <div class="gaming-price-card bg-white p-10 rounded-2xl shadow-xl">
+        <i data-lucide="crosshair" class="w-12 h-12 mx-auto text-[var(--color-accent)] mb-4"></i>
+        <p class="text-xl text-gray-500 mb-2">主打遊戲：APEX、特戰英豪 (Valorant)、R6</p>
+        <div class="my-6">
+          <span class="block text-4xl font-light text-gray-700">只需</span>
+          <!-- ✅ 加上 id 供 JSON 更新價錢 -->
+          <span id="price-hourly" class="text-7xl font-black text-[var(--color-accent)] leading-none">NT$180</span>
+          <span class="text-3xl font-bold text-gray-900 ml-2">元 / 小時</span>
+        </div>
+        <p class="text-gray-600 mb-8">這裡沒有壓力，只有歡笑！無論您是連敗到懷疑人生，或是想找個幽默的隊友一起閒聊、輕鬆爬分，我都能用我的同理心與歡樂，讓您的遊戲體驗充滿溫暖與笑聲。</p>
+        <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 text-lg rounded-full btn-primary shadow-xl">
+          立即預約超好笑陪玩時段
+          <i data-lucide="gamepad" class="w-5 h-5 ml-2"></i>
+        </a>
+      </div>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-8 text-left">
+        <div class="bg-[var(--color-bg-alt)] p-6 rounded-xl border border-[#E0E0E0]">
+          <h5 class="font-bold text-gray-900 mb-1 flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-2 text-[var(--color-accent)]"></i> 接單時間</h5>
+          <p class="text-gray-600 text-sm">設計/陪玩：周一、二 (下午/晚上)</p>
+          <p class="text-gray-600 text-sm">SOOP 直播：周三、四、五 (晚上)</p>
+          <p class="text-gray-600 text-sm">週末彈性：周六、周日 (不固定，詳見日曆)</p>
+        </div>
+        <div class="bg-[var(--color-bg-alt)] p-6 rounded-xl border border-[#E0E0E0]">
+          <h5 class="font-bold text-gray-900 mb-1 flex items-center"><i data-lucide="smile" class="w-4 h-4 mr-2 text-[var(--color-accent)]"></i> 服務核心</h5>
+          <p class="text-gray-600 text-sm">溫暖善良的隊友、超好笑的相聲陪伴、零壓力輕鬆遊玩體驗。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2.5. 排程日曆與預約區塊（原樣保留） -->
+  <section id="schedule" class="py-20 bg-white border-t border-[#E0E0E0]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-5xl font-extrabold text-center mb-4 text-[var(--color-text-dark)]"><span class="text-[var(--color-accent)]">親切排程</span>：查看我的空檔</h3>
+      <p class="text-center text-lg text-gray-500 mb-12">不用擔心，預約很簡單！請參考下方的日曆，顯示了設計或陪玩的空檔。如果您需要其他時間，請直接聯繫我討論喔！</p>
+
+      <div class="bg-[var(--color-bg-alt)] p-6 md:p-10 rounded-xl shadow-2xl border border-[#E0E0E0]">
+        <div class="flex justify-between items-center mb-6">
+          <button class="text-gray-500 hover:text-[var(--color-accent)] transition"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
+          <h4 class="text-2xl font-bold text-gray-900">2025 年 10 月 (靜態模擬)</h4>
+          <button class="text-gray-500 hover:text-[var(--color-accent)] transition"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+        </div>
+
+        <div class="grid grid-cols-7 gap-2 mb-2 text-center text-sm font-semibold text-gray-500"><div>日</div><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div></div>
+
+        <div class="grid grid-cols-7 gap-2 text-center text-gray-800">
+          <div class="h-12 w-full"></div><div class="h-12 w-full"></div><div class="h-12 w-full"></div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">1</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">2</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">3</div>
+          <div class="calendar-day text-white bg-[var(--color-flexible)] border-[#2563EB] hover:bg-[#2563EB]" data-tooltip="週末彈性時段 (實況/陪玩/休息)">4</div>
+
+          <div class="calendar-day text-white bg-[var(--color-flexible)] border-[#2563EB] hover:bg-[#2563EB]" data-tooltip="週末彈性時段 (實況/陪玩/休息)">5</div>
+          <div class="calendar-day text-white bg-[var(--color-accent)] border-[#E68A00] hover:bg-[#E68A00]" data-tooltip="設計或陪玩空檔 (下午/晚)">6</div>
+          <div class="calendar-day text-white bg-[var(--color-accent)] border-[#E68A00] hover:bg-[#E68A00]" data-tooltip="設計或陪玩空檔 (下午/晚)">7</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">8</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">9</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">10</div>
+          <div class="calendar-day text-white bg-[var(--color-flexible)] border-[#2563EB] hover:bg-[#2563EB]" data-tooltip="週末彈性時段 (實況/陪玩/休息)">11</div>
+
+          <div class="calendar-day text-white bg-[var(--color-flexible)] border-[#2563EB] hover:bg-[#2563EB]" data-tooltip="週末彈性時段 (實況/陪玩/休息)">12</div>
+          <div class="calendar-day text-white bg-gray-900 border-gray-700 hover:bg-gray-700 font-bold" data-tooltip="今日空檔/設計或陪玩空檔">13</div>
+          <div class="calendar-day text-white bg-[var(--color-accent)] border-[#E68A00] hover:bg-[#E68A00]" data-tooltip="設計或陪玩空檔 (下午/晚)">14</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">15</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">16</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">17</div>
+          <div class="calendar-day text-white bg-[var(--color-flexible)] border-[#2563EB] hover:bg-[#2563EB]" data-tooltip="週末彈性時段 (實況/陪玩/休息)">18</div>
+
+          <div class="calendar-day text-white bg-[var(--color-flexible)] border-[#2563EB] hover:bg-[#2563EB]" data-tooltip="週末彈性時段 (實況/陪玩/休息)">19</div>
+          <div class="calendar-day text-white bg-[var(--color-booked)] border-gray-600 hover:bg-gray-600 font-bold" data-tooltip="已有人預約設計或陪玩">20</div>
+          <div class="calendar-day text-white bg-[var(--color-accent)] border-[#E68A00] hover:bg-[#E68A00]" data-tooltip="設計或陪玩空檔 (下午/晚)">21</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">22</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">23</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">24</div>
+          <div class="calendar-day text-white bg-[var(--color-flexible)] border-[#2563EB] hover:bg-[#2563EB]" data-tooltip="週末彈性時段 (實況/陪玩/休息)">25</div>
+
+          <div class="calendar-day text-white bg-[var(--color-flexible)] border-[#2563EB] hover:bg-[#2563EB]" data-tooltip="週末彈性時段 (實況/陪玩/休息)">26</div>
+          <div class="calendar-day text-white bg-[var(--color-accent)] border-[#E68A00] hover:bg-[#E68A00]" data-tooltip="設計或陪玩空檔 (下午/晚)">27</div>
+          <div class="calendar-day text-white bg-[var(--color-accent)] border-[#E68A00] hover:bg-[#E68A00]" data-tooltip="設計或陪玩空檔 (下午/晚)">28</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">29</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">30</div>
+          <div class="calendar-day text-white bg-[var(--color-stream)] border-[#047857] hover:bg-[#047857]" data-tooltip="SOOP 平台直播">31</div>
+
+          <div class="h-12 w-full"></div>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-gray-300 text-left text-sm">
+          <h5 class="font-bold mb-2 text-gray-800">圖例 (輕鬆看懂排程)</h5>
+          <div class="flex flex-wrap gap-x-6 gap-y-3 text-gray-600">
+            <div class="flex items-center"><span class="w-4 h-4 rounded-full bg-[var(--color-accent)] mr-2"></span><span class="font-semibold text-gray-900">設計 & 陪玩空檔</span> (Mon/Tue)</div>
+            <div class="flex items-center"><span class="w-4 h-4 rounded-full bg-[var(--color-flexible)] mr-2"></span><span class="font-semibold text-gray-900">週末彈性時段</span> (Sat/Sun：實況/陪玩/休息)</div>
+            <div class="flex items-center"><span class="w-4 h-4 rounded-full bg-[var(--color-stream)] mr-2"></span><span class="font-semibold text-gray-900">SOOP 平台直播</span> (Wed/Thu/Fri 晚上)</div>
+            <div class="flex items-center"><span class="w-4 h-4 rounded-full bg-[var(--color-booked)] mr-2"></span><span class="font-semibold text-gray-900">已預約/已滿</span> (請聯繫討論)</div>
+            <div class="flex items-center"><span class="w-4 h-4 rounded-full bg-gray-900 mr-2"></span><span class="font-semibold text-gray-900">本日空檔</span> (模擬)</div>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 text-base rounded-full btn-primary shadow-lg">
+            確認空檔後，點此溫暖預約
+            <i data-lucide="calendar-check" class="w-4 h-4 ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 社交媒體與聯繫方式區塊 -->
+  <section id="contact" class="py-16 bg-[var(--color-bg-alt)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h3 class="text-4xl font-bold mb-10 text-[var(--color-text-dark)]">聯繫我 & 保持追蹤</h3>
+
+      <div class="max-w-lg mx-auto p-8 rounded-2xl bg-white gaming-price-card mb-12">
+        <h4 class="text-3xl font-semibold mb-4 text-[var(--color-accent)]">Discord 優先聯繫</h4>
+        <p class="text-gray-500 mb-4">請直接加好友私訊。我會盡快用最溫暖、最親切的語氣回覆您！</p>
+        <div class="flex items-center justify-center space-x-3 bg-[#F7F7F7] p-4 rounded-lg border border-[#E0E0E0]">
+          <i data-lucide="message-square" class="w-6 h-6 text-[var(--color-accent)]"></i>
+          <!-- ✅ 加上 id 供 JSON 更新 Discord ID -->
+          <span id="discord-id" class="text-2xl font-mono text-gray-800 select-all font-bold">YourDiscordID#1234</span>
+        </div>
+      </div>
+
+      <div class="flex justify-center space-x-10 mb-8">
+        <a href="#" target="_blank" class="text-gray-500 hover:text-red-600 transition transform hover:scale-110 duration-300 flex flex-col items-center">
+          <i data-lucide="youtube" class="w-10 h-10"></i>
+          <span class="mt-1 text-sm">YouTube 頻道</span>
+        </a>
+        <a href="#" target="_blank" class="text-gray-500 hover:text-purple-600 transition transform hover:scale-110 duration-300 flex flex-col items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 fill-current" viewBox="0 0 24 24"><path d="M11.967 15.656l2.164 2.164h3.692v-3.692l2.164-2.164V4.545h-6.856v5.82h-3.692V4.545H4.545v10.038l2.164 2.164h3.692l1.566 1.566v-1.257l.006-.013zM2.875 0L0 2.875v14.25L2.875 20H6.5V24h3.5v-4h5V24h3.5v-4h4.625l2.875-2.875V2.875L21.125 0H2.875z"></path></svg>
+          <span class="mt-1 text-sm">Twitch 直播</span>
+        </a>
+        <a href="#" target="_blank" class="text-gray-500 hover:text-gray-900 transition transform hover:scale-110 duration-300 flex flex-col items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 fill-current" viewBox="0 0 24 24"><path d="M19.67 10.96c.07-.4.12-.8.12-1.2h0c0-1.7-.62-3.13-1.84-4.22-.64-.54-1.42-.9-2.3-1.1v4.32c1.78.36 3.12 1.94 3.12 3.82zM15.4 7.63c.42.06.8.08 1.13.08v-4.3c-.66-.1-1.3-.13-1.9-.13-3.68 0-6.72 2.76-6.72 6.13 0 1.04.28 2.02.76 2.88.58 1.04 1.48 1.84 2.58 2.37v-4.5h-.17c-1.78-.36-3.12-1.94-3.12-3.82 0-2.3 1.9-4.18 4.25-4.18 1.05 0 2.05.4 2.8 1.15z"></path></svg>
+          <span class="mt-1 text-sm">抖音頻道</span>
+        </a>
+      </div>
+
+      <div class="mt-10 max-w-xl mx-auto p-4 rounded-xl bg-[var(--color-stream)] shadow-lg hover:shadow-xl transition duration-300">
+        <a href="https://soop.com/yourchannel" target="_blank" class="flex items-center justify-center text-white font-bold text-lg">
+          <i data-lucide="tv" class="w-6 h-6 mr-3"></i>
+          我的 SOOP 平台直播連結：請點擊這裡收看！
+          <i data-lucide="arrow-right" class="w-5 h-5 ml-3"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-white py-6 mt-12 border-t border-[#E0E0E0] text-center text-sm text-gray-500">&copy; 2025 Your Studio. 版權所有。</footer>
+</div>
+
+<!-- JavaScript -->
+<script>
+  // Lucide 初始化
+  document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+
+  // 作品集標籤切換
+  function showPortfolio(tabName) {
+    document.querySelectorAll('.portfolio-tab').forEach(tab => { tab.classList.add('hidden'); tab.classList.remove('active-tab'); });
+    const selectedTab = document.getElementById(tabName + '-portfolio');
+    if (selectedTab) { selectedTab.classList.remove('hidden'); selectedTab.classList.add('active-tab'); }
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.classList.remove('text-[var(--color-accent)]','border-[var(--color-accent)]');
+      button.classList.add('text-gray-500','border-transparent','hover:border-gray-400','hover:text-gray-900');
+    });
+    const selectedButton = document.querySelector(`.tab-button[onclick*="'${tabName}'"]`);
+    if (selectedButton) {
+      selectedButton.classList.add('text-[var(--color-accent)]','border-[var(--color-accent)]');
+      selectedButton.classList.remove('text-gray-500','border-transparent','hover:border-gray-400','hover:text-gray-900');
+    }
+  }
+  document.addEventListener('DOMContentLoaded', () => { showPortfolio('live'); });
+</script>
+
+<!-- ✅ 讀取 data/site.json 來更新：價錢、Discord（可自行擴充） -->
+<script>
+(async () => {
+  try {
+    const res = await fetch('data/site.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('site.json not found');
+    const d = await res.json();
+    const priceEl = document.getElementById('price-hourly');
+    const dcEl = document.getElementById('discord-id');
+    if (priceEl && d.pricePerHour != null) priceEl.textContent = `NT$${d.pricePerHour}`;
+    if (dcEl && d.discordId) dcEl.textContent = d.discordId;
+  } catch (e) {
+    console.warn('載入 data/site.json 失敗或不存在，沿用預設 HTML。', e);
+  }
+})();
+</script>
+</body>
+</html>
